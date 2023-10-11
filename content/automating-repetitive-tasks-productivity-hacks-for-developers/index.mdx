@@ -1,217 +1,599 @@
 ---
-title: "Automating Repetitive Tasks: Productivity Hacks for Developers"
-description: How to deploy your Next.js apps on Vercel.
+title: "Understanding Javascript"
+description: In the hood of javascript, a deep dive 
 image: "../../public/blogs/emile-perron-xrVDYZRGdw4-unsplash.jpg"
-publishedAt: "2023-01-01"
-updatedAt: "2023-01-01"
-author: "codebucks"
+publishedAt: "2023-10-09"
+updatedAt: "2023-10-09"
+author: "pa1ncakes"
 isPublished: true
 tags: 
-- productivity
+- learning
 ---
 
-Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.
-
-By default, Tailwind removes all of the default browser styling from paragraphs, headings, lists and more. This ends up being really useful for building application UIs because you spend less time undoing user-agent styles, but when you _really are_ just trying to style some content that came from a rich-text editor in a CMS or a markdown file, it can be surprising and unintuitive.
-
-We get lots of complaints about it actually, with people regularly asking us things like:
-
-> Why is Tailwind removing the default styles on my `h1` elements? How do I disable this? What do you mean I lose all the other base styles too?
-> We hear you, but we're not convinced that simply disabling our base styles is what you really want. You don't want to have to remove annoying margins every time you use a `p` element in a piece of your dashboard UI. And I doubt you really want your blog posts to use the user-agent styles either — you want them to look _awesome_, not awful.
-
-The `@tailwindcss/typography` plugin is our attempt to give you what you _actually_ want, without any of the downsides of doing something stupid like disabling our base styles.
-
-It adds a new `prose` class that you can slap on any block of vanilla HTML content and turn it into a beautiful, well-formatted document:
-
-```html
-<article className="prose">
-  <h1>Garlic bread with cheese: What the science tells us</h1>
-  <p>
-    For years parents have espoused the health benefits of eating garlic bread
-    with cheese to their children, with the food earning such an iconic status
-    in our culture that kids will often dress up as warm, cheesy loaf for
-    Halloween.
-  </p>
-  <p>
-    But a recent study shows that the celebrated appetizer may be linked to a
-    series of rabies cases springing up around the country.
-  </p>
-</article>
-```
-
-For more information about how to use the plugin and the features it includes, [read the documentation](https://github.com/tailwindcss/typography/blob/master/README.md).
 
 ---
+# Javascript
 
-## What to expect from here on out
+**Syntax Parser** : A program that reads your code and determines what it does and if its grammer/syntax is valid.
 
-What follows from here is just a bunch of absolute nonsense I've written to dogfood the plugin itself. It includes every sensible typographic element I could think of, like **bold text**, unordered lists, ordered lists, code blocks, block quotes, _and even italics_.
+- When you write JavaScript it isn't directly telling computer what to do. You're writing code, but then someone else
+  built programs that convert your JS into something that computer can understand. Those programs are called compilers
+  or interpreters.
 
-It's important to cover all of these use cases for a few reasons:
+**Compilers** : Compilers go character by character and translate your code into a set of instructions.Important to
+understand is that during that process programmers who wrote that compiler can choose to do extra stuff. Your code
+is not what actually is given to a computer but a translation of it.
 
-1.  We want everything to look good out of the box.
-2.  Really just the first reason, that's the whole point of the plugin.
-3.  Here's a third pretend reason though a list with three items looks more realistic than a list with two items.
+**Lexical Environment** : Where something sits physically in the code you writea. When we talk about lexical
+environment we are talking about where it's written and what surrounds it.
 
-Now we're going to try out another header style.
+**Execution Context** : A wrapper to help manage the code that is running. There are lot of lexical environments.
+The one which is currently running is managed via execution contexts. It can contain things beyond what you've
+written in your code.
 
-### Typography should be easy
+**Name/Value Pair** : A name which maps to a unique value. The name can be defined more than once but can have only one value
+in any given execution context.
 
-So that's a header for you — with any luck if we've done our job correctly that will look pretty reasonable.
-
-Something a wise person once told me about typography is:
-
-> Typography is pretty important if you don't want your stuff to look like trash. Make it good then it won't be bad.
-
-It's probably important that images look okay here by default as well:
-
-<Image
-  src="/blogs/c-d-x-PDX_a_82obo-unsplash.jpg"
-  width="718"
-  height="404"
-  alt="Image"
-  sizes="100vw"
-/>
-
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
-
-Now I'm going to show you an example of an unordered list to make sure that looks good, too:
-
-- So here is the first item in this list.
-- In this example we're keeping the items short.
-- Later, we'll use longer, more complex list items.
-
-And that's the end of this section.
-
-## What if we stack headings?
-
-### We should make sure that looks good, too.
-
-Sometimes you have headings directly underneath each other. In those cases you often have to undo the top margin on the second heading because it usually looks better for the headings to be closer together than a paragraph followed by a heading should be.
-
-### When a heading comes after a paragraph …
-
-When a heading comes after a paragraph, we need a bit more space, like I already mentioned above. Now let's see what a more complex list would look like.
-
-- **I often do this thing where list items have headings.**
-
-  For some reason I think this looks cool which is unfortunate because it's pretty annoying to get the styles right.
-
-  I often have two or three paragraphs in these list items, too, so the hard part is getting the spacing between the paragraphs, list item heading, and separate list items to all make sense. Pretty tough honestly, you could make a strong argument that you just shouldn't write this way.
-
-- **Since this is a list, I need at least two items.**
-
-  I explained what I'm doing already in the previous list item, but a list wouldn't be a list if it only had one item, and we really want this to look realistic. That's why I've added this second list item so I actually have something to look at when writing the styles.
-
-- **It's not a bad idea to add a third item either.**
-
-  I think it probably would've been fine to just use two items but three is definitely not worse, and since I seem to be having no trouble making up arbitrary things to type, I might as well include it.
-
-After this sort of list I usually have a closing statement or paragraph, because it kinda looks weird jumping right to a heading.
-
-## Code should look okay by default.
-
-I think most people are going to use [highlight.js](https://highlightjs.org/) or [Prism](https://prismjs.com/) or something if they want to style their code blocks but it wouldn't hurt to make them look _okay_ out of the box, even with no syntax highlighting.
-
-Here's what a default `tailwind.config.js` file looks like at the time of writing:
+**Object** : Collection of name value pairs sitting in memory and have references to other things inside them like properties and
+methods. Object can have a primitive (string,boolean) and that will be called a _property_. It can have another object and it will also
+be a property.
 
 ```js
-module.exports = {
-  purge: [],
-  theme: {
-    extend: {},
+var person = new Object();
+or;
+var person = {};
+```
+
+Object can also contain a function and it is called a method.
+
+```js
+var person = new Object();
+person["firstName"] = "Jason";
+
+person.address = "111 Main St.";
+```
+
+since `firstName` doesn't exist on person object, we create it using brackets operator and give a value to it (property). Doth is and operator
+that works from left-to-right. It allows to access or set an object's properties.
+
+**Global Execution Context** : The base execution context. It creates a global object and a special variable called _this_. In a
+browser _this_ global object is _window_.
+
+- When we say global in javascript it simply means "its not inside a function".
+- When we declare a function or a variable which is not inside a function its is attached to the global window object.
+
+  ![Alt Text](https://i.imgur.com/tn9aaBu.png)
+
+**Hoisting** : You can write in your code a call to a function before an actual function and it will execute without any errors.
+
+```js
+b();
+
+function b() {
+  console.log("This works!");
+}
+```
+
+When the syntax parser runs through your code it recognizes where you created variables and functions and it sets up memory for them.
+So before your code begins to be executed, JS engine has already set aside memory for all the variables and functions you have created .
+When the code begins to execute line by line it can access it.
+
+However for variables JS engine puts a placeholder undefined, because it doesn't know what its value will ultimately end up being until
+it starts executing that specific line of code.
+
+```js
+console.log(a);
+
+var a = "Hello World!";
+```
+
+- The execution context has 2 phases
+  1. Setup memory space for variables and functions. For functions the entirety of the code sits in the global execution
+     context and for variables only the declarations are attached to the global object.
+  2. The assignments are set in the code execution phase. The code runs line by line in this phase
+
+**Single Threaded** : JavaScript is a single threaded Synchronous language. That means one command execution at a time.
+
+**Synchronous** : One at a time and in order.
+
+- everytime the parser encounters a function a new execution context is created and a _this_ variable is also created and
+  is moved to the top if its invoked.
+
+**Variable Environment** : Where the variable lives and how they relate to each other in memory.Every execution context has its
+own variable environment in memory.
+
+- Every execution context has a reference to its outer environment.
+
+**The Scope Chain** : The scope chain means the lexical relation between the local execution context and the global executionn
+context. If javascript doesnt find a variable in its own environment it looks to the outer environment . The whole process of
+searching the variables down the chain is called the scope chain.
+
+**Scope** : Where a variable is available in your code. And if its truly a new variable or a copy.
+
+So in this example myVar would actualy log 1 even though it sits inside a function which is inside another. myVar sits in the
+outer global environment so JS will go down the scope chain until it finds it.
+
+```js
+function a() {
+  function b() {
+    console.log(myVar);
+  }
+
+  b();
+}
+
+var myVar = 1;
+a();
+```
+
+**let** : allows JS engine block scoping. During execution context that variable is still placed in memory and set to undefined,
+however, you're not allowed to use it until the line of code is run during the execution phase. So if you try to use a variable before,
+you'll get an error. Also, it is declared within a block. A block is usually defined by {} (function, if statement etc). So if you're
+running let inside a loop a new variable will be placed in memory after each iteration.
+
+**Asynchronous** : More than one at a time. What's happening inside the js engine is Synchronous. Its just browser putting things asynchronously
+in the event queue.
+
+**Event Queue** : The event queue isn't looked at until the call stack is empty.
+
+**Dynamic Typing** : you don't tell the engine what type of data a variable holds, it figures it out while your code is running.
+Variables can hold different types of values because its all figured out during execution.
+
+## Primitive types
+
+A type of data that reperesents a single value
+
+1. **Undefined** : Undefined reperesents the lack of existance. It is a special value , a keyword that JavaScript sets up for all
+   variables during the creation phase of the execution context. You shouldn't set a variable to `undefined` yourself.
+2. **Null** : Null also represents lack of existence and is user-usable
+3. **Boolean** : _true_ or _false_
+4. **Number** : Floating point number(there's always some decimals)
+5. **String** : A sequence of characters
+6. **Symbol** : used in es6
+
+**Operators** : A special function that is syntactically(written) differently. Its written in infix notation but can be written in prefix
+and postfix notation too.Generally operators take two parameters and return result.
+
+**Operator Precedence** : Which operator function gets call first.
+
+Operator precedence table: [https://developer.mozilla.org/Operator_Precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
+
+**Associativity** : What order operator functions get called in : left-to-right or right-to-left
+
+**Coercion** : converting a value from one type to another. this happens quite often in javascript because it's dynamically typed.
+
+- when true is coerced to a number it is 1
+- when false is coerced to a number it is 0
+- when null is coerced to a number it is 0
+- when undefined is coerced to a number it is NaN(not a number)
+
+- `===` is a strict comparison operator and doesn't do conversion. So it's the best practice to always use it to prevent strange bugs due
+  to conversion.
+
+```js
+7 + "7"; // would be = '77'
+```
+
+- `undefined `, `null` and `""` (empty strings) is converted to boolean `false`.
+
+We can use that to our advantage. This pattern is used in many JS libraries. Whatever is in parenthesis of it statement it is converted to a boolean.
+So this statement returns `true` if `a` is set or `false` if not.
+
+```js
+var a;
+
+if (a) {
+  console.log("Something is there.");
+}
+```
+
+Also worth mentioning that `false || true` returns `true`
+
+- when we access a property in a object with bracket notation[] its called computed member access and if we do it by dot notation "."
+  its simply called member access. note that computed member access has a lower precedence than the member access
+
+**Default values** : If you pass tow values to `||` operator it will return a furst oe which returns `true`.
+
+```js
+var name = name || "your name";
+```
+
+This way you can set a default parameter value in case no arguments are passed during the invokation of a function.
+
+When using a few libraries to avoid overwriting vars, most libraries use this pattern :
+
+```js
+window.variableName = window.variableName || "string";
+```
+
+**Namespace** : A container for variables and functions. Typically to keep variables and functions with the same name separate
+
+You can prevent name collisions by using objects to store properties:
+
+```js
+var english = {};
+english.greet = "Hello";
+```
+
+**JSON** : Javascript Object Notation . It is inspired by the object literal notation in javascript. JSON property names must be
+wrapped in double quotes.
+
+```js
+var obj = { firstname: "pa1n", lastname: "cakes" };
+
+JSON.stringyfy(obj); //This will convert the object into a json string
+
+JSON.parse('{firstname : "pa1n",lastname :  "cakes"}'); //This will convert the JSON string into a javascript object
+
+//object literal syntax is more clean and preffered way to create objects
+var Jason = {
+  firstname: "tarun",
+  lastname: "raj",
+  address: {
+    street: "Alpha2 ",
+    city: "Noida",
+    state: "UP",
   },
-  variants: {},
-  plugins: [],
 };
 ```
 
-Hopefully that looks good enough to you.
+**First Class Functions** : Everything you can do with other types you can do with functions. Assign them to variables, pass them around,
+create them on the fly.
 
-### What about nested lists?
+Just like any object, function object resides in memory. Though, it's a special type of object because it has all the features of a normal object
+but has some other special properties 1. **Name** : Though it can be anonymous and can not have a name 2. **Code** : where the actual lines of code sit
 
-Nested lists basically always look bad which is why editors like Medium don't even let you do it, but I guess since some of you goofballs are going to do it we have to carry the burden of at least making it work.
+- The code that you write gets placed in the special property of the function object. Sp ot isn't like the code you write is a function. The function
+  is a object with other properties. And the code that you write is just one of those properties that you're adding onto it. What is special about that
+  property that it's invokable. Youvan say run that code and that's when execution context creation and execution happens. It's important that you have
+  this mental model of functions in your mind. You have to thing of functios as objects whose code just happens to be one of the properties. There are
+  other things that functions can have attached to it. And it can be moved around and copied just like other object.
 
-1.  **Nested lists are rarely a good idea.**
-    - You might feel like you are being really "organized" or something but you are just creating a gross shape on the screen that is hard to read.
-    - Nested navigation in UIs is a bad idea too, keep things as flat as possible.
-    - Nesting tons of folders in your source code is also not helpful.
-2.  **Since we need to have more items, here's another one.**
-    - I'm not sure if we'll bother styling more than two levels deep.
-    - Two is already too much, three is guaranteed to be a bad idea.
-    - If you nest four levels deep you belong in prison.
-3.  **Two items isn't really a list, three is good though.**
-    - Again please don't nest lists if you want people to actually read your content.
-    - Nobody wants to look at this.
-    - I'm upset that we even have to bother styling this.
+You have to think about functions as more than just containers of code.
 
-The most annoying thing about lists in Markdown is that `<li>` elements aren't given a child `<p>` tag unless there are multiple paragraphs in the list item. That means I have to worry about styling that annoying situation too.
+- Function expressions aren't hoisted
 
-- **For example, here's another nested list.**
+**Expression** : A unit of code that results into a value. Statements just do work, but expressions end up creating value. That value doesnt necessarily
+have to be saved to a variable.
 
-  But this time with a second paragraph.
+Thid is a regular function statement :
 
-  - These list items won't have `<p>` tags
-  - Because they are only one line each
+```js
+function greet() {
+  console.log("hi");
+}
+```
 
-- **But in this second top-level list item, they will.**
+It is put into memory, but it doesn't return a value until a function is invocated.
 
-  This is especially annoying because of the spacing on this paragraph.
+This is an expression
 
-  - As you can see here, because I've added a second line, this list item now has a `<p>` tag.
+```js
+var anonymousGreet = function () {
+  console.log("hi");
+};
+```
 
-    This is the second line I'm talking about by the way.
+Remember functions are objects. So it creates an object on the fly and sets it equal to the variable anonymousGreet. So when your code runs in the execution phase,
+sees the first function it just says "yeah there is function" and does nothing, just keeps going. But when it sees a variable it results in a value of a function
+object being created. That's why you can call function statement before it but function expression will throw an error as "undefined is not a function" because
+that function is not yet created.
 
-  - Finally here's another list item so it's more like a list.
+**Passing by Value** : Passing by value means a new copy of the variable is created in a different memory location which is a copy. all primitives
+in javascript work like this
 
-- A closing list item, but with no nested list, because why not?
+**Passing by reference** : Pass by reference means it's pointing to the same memory location, objects and functions in javascript work in this manner
 
-And finally a sentence to close off this section.
+**By value** (primitives):
 
-## There are other elements we need to style
+```js
+var a = 3;
+b = a;
+```
 
-I almost forgot to mention links, like [this link to the Tailwind CSS website](https://tailwindcss.com). We almost made them blue but that's so yesterday, so we went with dark gray, feels edgier.
+When you set `b` equals to `a`, equals operator sees these are primitives creates a new spot in memory and makes a copy of it. `b` and `a` will be both `3`
+but they are copies sitting on separate spots in memory. So if I change `a = 5` it doesn't affect `b`, it is still `3`, because after making a copy these
+values are on their own.
 
-We even included table styles, check it out:
+**By reference** (all objects including functions):
 
-| Wrestler                | Origin       | Finisher           |
-| ----------------------- | ------------ | ------------------ |
-| Bret "The Hitman" Hart  | Calgary, AB  | Sharpshooter       |
-| Stone Cold Steve Austin | Austin, TX   | Stone Cold Stunner |
-| Randy Savage            | Sarasota, FL | Elbow Drop         |
-| Vader                   | Boulder, CO  | Vader Bomb         |
-| Razor Ramon             | Chuluota, FL | Razor's Edge       |
+```js
+var c = { greetings: "hi" };
+var d;
+d = c;
+```
 
-We also need to make sure inline code looks good, like if I wanted to talk about `<span>` elements or tell you the good news about `@tailwindcss/typography`.
+Equals operator sees there is an object so it simply points to the same spot in memory.
 
-### Sometimes I even use `code` in headings
+After changing a value of an object: `c.greetings = 'hello'` `d` would change as well.
 
-Even though it's probably a bad idea, and historically I've had a hard time making it look good. This _"wrap the code blocks in backticks"_ trick works pretty well though really.
+**Mutate** means change something.
 
-Another thing I've done in the past is put a `code` tag inside of a link, like if I wanted to tell you about the [`tailwindcss/docs`](https://github.com/tailwindcss/docs) repository. I don't love that there is an underline below the backticks but it is absolutely not worth the madness it would require to avoid it.
+- equals operator sets a new memory space
 
-#### We haven't used an `h4` yet
+- this keyword inside a function points to the window object.
+- if its inside an object it points to that object. (we use self = this to prevent the malfuction)
 
-But now we have. Please don't use `h5` or `h6` in your content, Medium only supports two heading levels for a reason, you animals. I honestly considered using a `before` pseudo-element to scream at you if you use an `h5` or `h6`.
+With ES5 JavaScript using `var` you could solve this by setting inside a method `var _this = this;` which is a very common pattern.
 
-We don't style them at all out of the box because `h4` elements are already so small that they are the same size as the body copy. What are we supposed to do with an `h5`, make it _smaller_ than the body copy? No thanks.
+**Arrays** can hold a mix of anything: functions, primitives, objects.
 
-### We still need to think about stacked headings though.
+**Arguments** are the parameters you pass to a function. JS creates a keyword of the same name which is an array-like that contains all parameters that you passed.
 
-#### Let's make sure we don't screw that up with `h4` elements, either.
+In ES6 we can do: `function greet(firstname, ...other)` and `other` will be an array that contains the rest of the arguments.
 
-Phew, with any luck we have styled the headings above this text and they look pretty good.
+You can call one function which inside calls another function with a certain set of parameters.
 
-Let's add a closing paragraph here so things end with a decently sized block of text. I can't explain why I want things to end that way but I have to assume it's because I think things will look weird or unbalanced if there is a heading too close to the end of the document.
+JavaScript engine is syntax parser in the browser.
 
-What I've written here is probably long enough, but adding this final sentence can't hurt.
+Semicolons are optional in JS because JS engine injects them automatically.
+But it is a bad practice to not put them because you want to know what code you are writing.
 
-## GitHub Flavored Markdown
+**Whitespace** - invisible characters that create space in your code: returns, tabs, space.
 
-I've also added support for GitHub Flavored Mardown using `remark-gfm`.
+Using an Immediately Invoked Function Expression (IIFE):
 
-With `remark-gfm`, we get a few extra features in our markdown. Example: autolink literals.
+```js
+var firstname = "John";
 
-A link like www.example.com or https://example.com would automatically be converted into an `a` tag.
+(function (name) {
+  var greeting = "Inside IIFE: Hello";
+  console.log(greeting + " " + name);
+})(firstname); // IIFE
+```
 
-This works for email links too: contact@example.com.
+Function statements can't be anonymous.
+
+Everything inside a parenthesis is considered expression.
+
+**IIFE** creates a new execution context so it's safe code because it is wrapped in separate execution context and prevents variable names collision.
+Wrapping code libraries is very common pattern to not clash code with the global object.
+You can reference to global object by passing `window` as a parameter.
+
+
+When a function runs and completes it is removed from execution stack, but variables created and saved in that execution phase are still stored in
+memory and can be accessed from down the scope.
+
+```javascript
+function greet(whattosay) {
+
+   return function(name) {
+	   console.log(whattosay + ' ' + name;
+   }
+
+}
+
+var sayHi = greet('Hi');
+sayHi('Jason');
+```
+
+Inside the variable `sayHi` we run `greet` function which returns another function and passes string `'Hi'`. After that functions is finished and
+it is popped from the execution stack. But `whattosay` variable still sits saved in the memory with a value `Hi`. So when we call function `sayHi`
+it will go in the outer environment and look for whattosay variable and will find it and log "Hi Jason".
+We describe this proccess as execution context has closed in outer variables.
+
+Pay attention when functions are executed to understand where it will look for variables down the scope chain.
+
+Every time function is called it creates a new execution context and its variable environment which sits in that specific space in memory. So even
+if you call the same function again and it creates a new variable of the same name. It doesn't overwrite it, because it is created in a separate
+environment and sits in the different space in the memory.
+
+**Callback function** - a function you give to another function to be run when the other function is finished.
+
+
+Because functions are objects, all functions have access to built-in `call()`, `bind()` and `apply()` methods.
+
+**`bind()`** creates a copy of a function it is attached to. E.g. `name.bind(obj)` inherits `this` from the object you pass to it as a parameter.
+`bind()` can also bind permanent parameters to the function: `name.bind(this, 1, 2)`. So when you call `name()` it will have parameters `1` and `2`
+already passed.
+
+**`call()`** invokes the function but also lets you to decide what `this` variable will be, by passing an object: `call(object, 'param', 'param2')`.
+Unlike bind, it executes the function instead of copying it.
+
+**`apply()`** is almost the same as `call()` but instead you need to pass an array as a parameter: `.apply(object, [parameters])`
+
+In practice, you can use `call()` and `apply()` to borrow methods/functions from objects and use on another object with the same property names.
+
+**Function currying** - creating a copy of a function but with some preset parameters.
+
+A mapping function is a function which takes one array and outputs another array. It is very powerful and useful technique that you will see in codebases.
+
+```javascript
+function mapForEach(arr, fn) {
+  var newArr = [];
+  for (var i = 0; i < arr.length; i++) {
+    newArr.push(fn(arr[i]));
+  }
+
+  return newArr;
+}
+```
+
+You should avoid mutating/changing things. That's why it is better to return a new array than change existing one.
+
+Open source libraries are great educational tools. So take the time to read some of the most popular ones like jQuery, React.
+
+**Inheritance** - one object gets access to properties and methods of another object.
+
+**Classical inheritance** is the way it's been done a long time, it's what Java, C# uses. It's very verbose.
+
+**Prototypal** is much simpler, flexible, extensible, easy to understand.
+
+All objects have built-in prototype property, including functions. Each prototype can also have its own prototype.
+
+Each object inherits properties and methods of other objects through a prototype. So if you call a property on one object and it doesn't find it
+there it goes the prototype chain and looks for it on a prototype.
+
+Functions, arrays, and objects all have their prototype that's why we say that everything is an object in JavaScript.
+
+All objects, functions, arrays have their prototype pointing to the special object where you can access methods like `call()`, `bind()`, `push()`.
+**Reflection** - an object can look at itself, listing and changing its properties and methods.
+
+`extend(obj, obj2, obj3)` takes all properties and methods of given objects and passes them to the first object.
+
+It is not a built in feature but many libraries have it and ES6 have `extends`.
+
+**`new Function()`** creates an empty object and invokes a function. It also changes what `this` points to. It points to that empty object.
+
+`new` lets construct an object via function.
+
+**Function constructors** - a normal function that is used to construct objects. The `this` variable points to a new empty object, and that object
+is returned from the function automatically.
+
+`new` keyword creates an object and functions constructors are used for adding properties and methods to that object.
+
+
+**`.prototype`** is a property that sits in every function in JavaScript but unless you use a function constructor with `new` operator it is never used.
+
+A `.prototype` is **not** _the_ prototype of a function object. It is only a prototype of objects created with a `new` keyword.
+
+It's better to put your methods on the `prototype` to save memory space as it gets shared between all objects.
+
+
+Any function that we intend to use as a function constructor should be named with a first capital letter. This makes it easier to spot errors in
+case you would miss `new` keyword.
+
+Although worth mentioning that creating objects with function constructors is going away because of new methods and ES6.
+
+
+JavaScript has some built it function constructors like: `new Number(3)` and `new String('Jason')`.
+
+These constructors look like you're creating primitives but you are not. You are creating objects.
+
+When you use some methods like `.length` on a string, your string is boxed in a `String` object automatically to get access to all its methods.
+
+Although it doesn't work like that for numbers and you would need to create `Number` object first.
+
+All these built-in function constructors have a prototype and you can actually add your own methods to it.
+
+```javascript
+String.prototype.isLengthGreaterThan = function (limit) {
+  return this.length > limit;
+};
+
+console.log("John".isLengthGreaterThan(3));
+```
+
+It's best to avoid using built-in function constructors to create primitives because you're not creating primitives but rather objects.
+
+```javascript
+var a = 3;
+var b = new Number(3);
+
+a == b; // will return true because of coersion
+a === b; // will return false because we are comparing object with a primitive
+```
+
+
+For arrays use standard `for` loop or `forEach`, but don't use `for in`. Because arrays are objects with `for in` you could iterate into a prototype.
+
+
+```javascript
+var person = {
+  firstname: "Default",
+  lastname: "Default",
+  greet: function () {
+    return "Hi " + this.firstname;
+  },
+};
+
+var john = Object.create(person);
+```
+
+`Object.create(person)` - creates an empty object with its prototype pointing at whatever you passed in as a parameter.
+
+```javascript
+john.firstname = "John";
+john.lastname = "Doe";
+```
+
+And you can override properties and methods by adding new ones to this object with the same names.
+
+**Polyfill** - code that adds a feature which the engine may lack.
+
+
+JavaScript has classes in ES6. However, it is not like a `class` in other languages. In other languages `class` is like a template. `class` in JS is
+an object by itself that you use to create other objects.
+
+`class` doesn't change anything how objects and prototypes work under the hood. It just gives you a different way to type. Because of it you may hear
+JavaScript classes being called syntactic sugar.
+
+**Syntactic sugar** - a different way to type something that doesn't change how it works under the hood.
+
+
+Large arrays of objects are useful for testing and initialization before you have an actual data to pull from, like a JSON file.
+
+
+**`typeof`** is an operator (essentially a function) that excepts a parameter and returns a string.
+
+**`instanceof`** will tell you if it has something in its prototype chain by returning a boolean.
+
+```javascript
+var a = 3;
+console.log(typeof a); // returns a string 'number'
+
+var b = "Hello";
+console.log(typeof b); // returns a string 'string'
+
+var c = {};
+console.log(typeof c); // returns a string 'object'
+
+var d = [];
+console.log(typeof d); // also returns a string 'object', weird!
+
+console.log(Object.prototype.toString.call(d)); // this little trick returns a string '[object Array]'
+
+function Person(name) {
+  this.name = name;
+}
+var e = new Person("Jane");
+console.log(typeof e); // also an object
+
+console.log(e instanceof Person); // returns true because Person is down the prototype chain of e
+
+console.log(typeof undefined); // returns undefined, makes sense
+console.log(typeof null); // returns an 'object', a bug since, like, forever...
+
+var z = function () {};
+console.log(typeof z); // returns a 'function'
+```
+
+JavaScript is a more liberal of what it allows.
+
+**`"use strict";`** - enforces more strict rules. E.g. in this mode you must declare var first to use it. In not strict mode if you forget to type
+`var`, it will still be created on the global object `window`.
+
+You can use use strict at the top of the document or at the top of a function to use strict only inside it's execution context.
+
+There are many aspects of improving as a developer. One of the most powerful is learning from other's good code. There is a fantastic treasure trove
+of good code out there to learn from. Tony calls it "an open source education".
+
+It may sound as fun as reading an encyclopedia, but you don't need to spend hours reading the source code. Find some area that's interesting to you.
+Don't get intimidated by famous libraries and what may seems complex patterns. Look at the structure, see what you could take away and imitate.
+
+This is a great way to learn advanced patterns and concepts in JavaScript. So make a practice to occasionally look at the source code of the library
+or framework you're using.
+
+When we're reading code we are not trying to understand how every feature is implemented. First, we'll try to see if we can read the code and learn
+how it is structured. And if we can learn some techniques and borrow some ideas.
+
+jQuery has some good code you could borrow for your own projects. It has been developed and watched by many developers so it has some of the best
+methods and practices.
+
+Inside jQuery there is Sizzle CSS Selector library for handling selectors.
+
+**Method chaining** - calling one method after another, and each method affects the parent object.
+
+So `obj.method1().method2()` where both methods end up with `this` variable pointing at `obj`.
+
+First of all, before building any application let's think of the requirements. What this app/library should do?
+
+Remember to write good comments for your code. Because even if you are the sole developer for a project you may need to come back after a year and
+you'll have to figure it out how everything works like it was someone else's code.
+
+**Transpile** - convert the syntax of one programming language, to another.
+
+In this case, languages that don't really ever run anywhere, but instead are processed by transpilers that generate JavaScript.
+
+**TypeScript** - one of the most popular transpiled languages and is created by Microsoft. The biggest difference that it uses strict types for its
+variables instead of dynamic types like JavaScript.
